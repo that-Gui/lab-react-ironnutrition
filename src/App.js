@@ -13,7 +13,13 @@ function App() {
   const addFood = (newDishes) => {
     const updateddishes = [...dishes, newDishes];
     setDishes(updateddishes);
-    console.log(updateddishes);
+  };
+
+  const searching = (searchQuery) => {
+    let filtersandwhiches = dishes.filter((ele) =>
+      ele.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+    );
+    setDishes(filtersandwhiches);
   };
 
   return (
@@ -22,7 +28,7 @@ function App() {
 
       <Button> Hide Form / Add New Food </Button>
 
-      <Search />
+      <Search hotdog={searching}/>
 
       <Divider>Food List</Divider>
 

@@ -14,10 +14,14 @@ function AddFoodForm(props) {
   const handleImageInput = (e) => setImage(e.target.value);
   const handleServingsInput = (e) => setServings(e.target.value);
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const newItem = {name, calories, image, servings};
     props.newFood(newItem);
+    setName('');
+    setImage('');
+    setCalories(0);
+    setServings(0);
 };
 
   return (
