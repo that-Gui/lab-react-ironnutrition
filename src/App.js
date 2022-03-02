@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Row, Divider, Button } from 'antd';
 import FoodBox from './components/foodBox/FoodBox';
 import AddFoodForm from './components/foodForm/addFoodForm';
+import Search from './components/search/search';
 
 function App() {
   const [dishes, setDishes] = useState(foods);
@@ -21,7 +22,7 @@ function App() {
 
       <Button> Hide Form / Add New Food </Button>
 
-      {/* Display Search component here */}
+      <Search />
 
       <Divider>Food List</Divider>
 
