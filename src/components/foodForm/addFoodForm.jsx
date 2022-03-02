@@ -17,7 +17,7 @@ function AddFoodForm(props) {
 const handleSubmit = (e) => {
     e.preventDefault();
     const newItem = {name, calories, image, servings};
-    props.addFood(newItem);
+    props.newFood(newItem);
 };
 
   return (
