@@ -9,12 +9,18 @@ import Search from './components/search/search';
 
 function App() {
   const [dishes, setDishes] = useState(foods);
+  const [showDishes, setShowDishes] = useState(true);
 
   const bin = (dishName) => {
     const dumpster = dishes.filter((ele) => {
       return ele.name !== dishName;
     });
     setDishes(dumpster);
+  };
+
+  const toggleShow = () => {
+    setShowDishes(!showDishes);
+    console.log(showDishes);
   };
 
   const addFood = (newDishes) => {
@@ -33,14 +39,14 @@ function App() {
     <div className="App">
       <AddFoodForm newFood={addFood}/>
 
-      <Button> Hide Form / Add New Food </Button>
+      <Button onClick={toggleShow}> Hide Form / Add New Food </Button>
 
       <Search hotdog={searching}/>
 
       <Divider>Food List</Divider>
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
-        {dishes.map((el) => <FoodBox food={el} bin={bin}/>)}
+        {showDishes && dishes.map((el) => <FoodBox food={el} bin={bin}/>)}
       </Row>
     </div>
   );
