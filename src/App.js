@@ -10,6 +10,13 @@ import Search from './components/search/search';
 function App() {
   const [dishes, setDishes] = useState(foods);
 
+  const bin = (dishName) => {
+    const dumpster = dishes.filter((ele) => {
+      return ele.name !== dishName;
+    });
+    setDishes(dumpster);
+  };
+
   const addFood = (newDishes) => {
     const updateddishes = [...dishes, newDishes];
     setDishes(updateddishes);
@@ -33,7 +40,7 @@ function App() {
       <Divider>Food List</Divider>
 
       <Row style={{ width: '100%', justifyContent: 'center' }}>
-        {dishes.map((el) => <FoodBox food={el} />)}
+        {dishes.map((el) => <FoodBox food={el} bin={bin}/>)}
       </Row>
     </div>
   );
